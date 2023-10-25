@@ -1,8 +1,14 @@
 # Krockes_Quest
-Krockes Quest: Meat your Destiny\n
-Your new favorite endless runner!\n
-The game speeds up for every 5 points you collect.\n\n
+Krockes Quest: Meat your Destiny
 
-Future plans:\n
-Add arcade-style 3 letter name for new highscore.\n
+Your new favorite endless runner!
+
+The game speeds up for every 5 points you collect.
+
+
+
+Future plans:
+
+Add arcade-style 3 letter name for new highscore.
+
 Make ground move along with player.
