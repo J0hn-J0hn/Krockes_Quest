@@ -1,0 +1,2 @@
+Type the line below directly into a blank terminal to install PyGame:
+pip install pygame
