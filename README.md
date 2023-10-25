@@ -1,11 +1,9 @@
 # Krockes_Quest
 Krockes Quest: Meat your Destiny
 
-Your new favorite endless runner!
+Your new favorite endless runner! 
 
-The game speeds up for every 5 points you collect.
-
-
+Remember to install Pygame before launching.
 
 Future plans:
 
