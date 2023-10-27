@@ -11,4 +11,4 @@ Future plans:
 
 Add arcade-style 3 letter name for new highscore.
 
-Make ground move along with player.
+Somewhat randomize carrot spawn timer.
