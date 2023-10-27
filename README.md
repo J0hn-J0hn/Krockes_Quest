@@ -1,12 +1,14 @@
 # Krockes_Quest
 Krockes Quest: Meat your Destiny
 
-Your new favorite endless runner! 
+Your new favorite endless runner!
 
-Remember to install Pygame before launching.
+The game speeds up for every 5 points you collect.
+
+
 
 Future plans:
 
 Add arcade-style 3 letter name for new highscore.
 
-Somewhat randomize carrot spawn timer.
+Make ground move along with player.
