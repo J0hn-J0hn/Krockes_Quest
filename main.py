@@ -182,8 +182,9 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
 
             # Flyttar hindret åt vänster
             carrot_rect.x -= carrot_move_speed
+            
             if carrot_rect.left <= -50:
-                carrot_rect.x = screen_width
+                carrot_rect.x = random.randint(800, 1600)
                 carrot_rect.y = random.randint(150,220)
 
             # Flyttar marken år vänster i takt med hindret
