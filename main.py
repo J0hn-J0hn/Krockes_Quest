@@ -196,11 +196,13 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
             if ground_rect.left <= -210:
                 ground_rect.midleft = (0,380)
 
-            # Flyttar broccoli åt vänster dubbelt så snabbt som morot
-            broccoli_rect.left -=  (carrot_move_speed + 4)
-            if broccoli_rect.right <= -500:
-                broccoli_rect.x = random.randint(800,1600)
-                broccoli_rect.y = random.randint(50,250)
+            if score_counter > 10:
+            # Flyttar broccoli åt vänster dubbelt så snabbt som morot efter 10 poäng
+                broccoli_rect.left -=  (carrot_move_speed + 4)
+                if broccoli_rect.right <= -500:
+                    broccoli_rect.x = random.randint(800,1600)
+                    broccoli_rect.y = random.randint(50,250)
+                screen.blit(broccoli_surf, broccoli_rect)
 
             # Flyttar köttbit åt vänster, randomiserar spawn
             meat_rect.x -=4
@@ -209,7 +211,6 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
                 meat_rect.y = random.randint(50,250)
 
             # Sätter ut resterande objekt
-            screen.blit(broccoli_surf, broccoli_rect)
             screen.blit(meat_surf, meat_rect)
             screen.blit(carrot_surf, carrot_rect)
             screen.blit(ground_surf, ground_rect)
