@@ -77,6 +77,9 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
     carrot_surf = pygame.image.load("morot_long.png").convert_alpha()
     carrot_rect = pygame.Rect(screen_width,200,20,100)
 
+    broccoli_surf = pygame.image.load("broccoli.png").convert_alpha()
+    broccoli_rect = broccoli_surf.get_rect(midbottom = (screen_width,300))
+
     meat_height = 200
     meat_surf = pygame.image.load("meat.png").convert_alpha()
     meat_rect = meat_surf.get_rect(midbottom = (screen_width,200))
@@ -145,6 +148,7 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
                             f.write(f"{score}\n")
 
                     # Nollställer alla parametrar för nytt spel
+                    broccoli_rect.x = screen_width
                     carrot_rect.x = screen_width
                     score_rect = score_surf.get_rect(midtop = (400,20))
                     score_counter = 0
@@ -192,6 +196,12 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
             if ground_rect.left <= -210:
                 ground_rect.midleft = (0,380)
 
+            # Flyttar broccoli åt vänster dubbelt så snabbt som morot
+            broccoli_rect.left -=  (carrot_move_speed + 4)
+            if broccoli_rect.right <= -500:
+                broccoli_rect.x = random.randint(800,1600)
+                broccoli_rect.y = random.randint(50,250)
+
             # Flyttar köttbit åt vänster, randomiserar spawn
             meat_rect.x -=4
             if meat_rect.right <= -333:
@@ -199,6 +209,7 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
                 meat_rect.y = random.randint(50,250)
 
             # Sätter ut resterande objekt
+            screen.blit(broccoli_surf, broccoli_rect)
             screen.blit(meat_surf, meat_rect)
             screen.blit(carrot_surf, carrot_rect)
             screen.blit(ground_surf, ground_rect)
@@ -220,9 +231,9 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
                 score_surf = test_font.render(f"Score: {score_counter}", False, "Black")
 
             # Avslutar spel om man träffar moroten
-            if carrot_rect.colliderect(player_rect):
+            if carrot_rect.colliderect(player_rect) or broccoli_rect.colliderect(player_rect):
                 game_active = False
-
+                
         elif game_active == False and new_game == False:
             # Hämta highscore från fil
             with open("hiscore.txt", "r", encoding="utf-8") as f:
