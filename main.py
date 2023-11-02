@@ -203,6 +203,15 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
                             has_rainbowmeat = False
                             is_invincible = True
                             invincibility_start_time = time.time()
+                        else:
+                            if player_rect.bottom == 300:
+                                player_grav = -20
+                                first_jump = True
+                                double_jump = False
+                            elif first_jump:
+                                player_grav = -15
+                                double_jump = True
+                                first_jump = False
 
             else: # Denna körs när ett spel är över: Tryck för nytt spel, nollställ poäng
                 if (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE) or \
@@ -217,6 +226,8 @@ async def main(): # Denna metod lades till för att kunna spela spelet som HTML-
                             f.write(f"{score}\n")
 
                     # Nollställer alla parametrar för nytt spel
+                    has_rainbowmeat = False
+                    is_invincible = False
                     broccoli_rect.x = screen_width
                     carrot_rect.x = screen_width
                     score_rect = score_surf.get_rect(midtop = (400,20))
